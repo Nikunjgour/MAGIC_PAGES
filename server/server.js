@@ -16,6 +16,11 @@ const app = express()
 //DB Connection
 connectDB() 
 
+// Body-parser
+app.use(express.json())
+app.use(express.urlencoded())
+
+
 
 app.get("/" , (req , res) =>{
     res.json({
