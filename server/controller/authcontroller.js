@@ -79,12 +79,15 @@ const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: '30d' })
 }
 
-
+const privateController = async (req, res) => {
+  res.send("Request Made By : " + req.user.name)
+}
 
 
 const authController = {
   registerUser,
   loginUser,
-};
+  privateController
+}
 
-export default authController;
+export default authController
